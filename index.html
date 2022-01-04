@@ -1,0 +1,29 @@
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Graphs</title>
+        <link rel="stylesheet" href="index.css">
+        <script type="module" src="application.js"></script>
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <div style= "z-index: 1;">
+                <input id="pathFinder" type="text" placeholder="Enter two vertices (e.g 1 3)" />
+                <button id="pathBtn">Find Path</button>
+                <button id="connectedBtn">Check Connectivity</button>
+                <button id="cyclesBtn">Get Cycles</button>
+                <button id="eulerCircuitBtn">Check for Eulerian Circuit</button>
+                <button id="bridgesBtn">Find Bridges</button>
+                <button id="treeBtn">Check if Tree</button>
+                <button id="bipartiteBtn">Check if Bipartite</button>
+            </div>
+
+            <div>
+                <canvas id="appCanvas" style="border:5px solid #000000;"></canvas>
+            </div>
+        </div>
+    </body>
+
+</html>
