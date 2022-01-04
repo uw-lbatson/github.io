@@ -22,6 +22,14 @@ export function vertexOnEdge(vertex, edge) {
 }
 
 export function addEdge(v1, v2, value) {
+    for (let i = 0; i < edges.length; i++) {
+        let edge = edges[i];
+        if ((edge.to == v1 & edge.from == v2) ||
+            (edge.to == v2 & edge.from == v1)) {
+            return;
+        }
+    }
+
     let edge = { from: v1, to: v2, highlight: false, weight: value }
     edges.push(edge);
 }
@@ -395,7 +403,7 @@ export function primsAlgo() {
             mstVertices[mstVertices.length] = smallestEdge.to;
         }
     }
-    
+
     return mstEdges;
 }
 
@@ -406,6 +414,13 @@ export function getTotalWeight(edgeSet) {
     }
     return weight;
 }
+
+
+
+
+
+
+
 
 
 

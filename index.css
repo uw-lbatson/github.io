@@ -38,6 +38,18 @@ div.center2 {
     width: 20%;
 }
 
+div.left-center {
+    display: block;
+    margin-right: auto;
+    width: 95%;
+}
+
+div.smallwidth {
+    display: block;
+    margin-left: auto;
+    width: 10%;
+}
+
 canvas {
     padding: 0;
     margin: auto;

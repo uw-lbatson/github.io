@@ -205,6 +205,135 @@ function runPrimsAlgo() {
     context.fillText(`Total weight: ${totalWeight}`, 10, 70);
 }
 
+function addCompleteGraph(size) {
+    let leftShift = window.innerWidth * 0.2;
+    let topShift = window.innerHeight * 0.1;
+    let horizontalMid = window.innerWidth / 2 - leftShift;
+    let verticalMid = window.innerHeight / 2 - topShift;
+
+    graph.clear();
+
+    if (size == 3) {
+        graph.addVertex(horizontalMid, verticalMid - 75);
+        graph.addVertex(horizontalMid + 50, verticalMid);
+        graph.addVertex(horizontalMid - 50, verticalMid);
+
+        for (let i = 0; i < graph.vertices.length; i++) {
+            for (let j = 0; j < graph.vertices.length; j++) {
+                if (i != j) {
+                    graph.addEdge(graph.vertices[i], graph.vertices[j], 0);
+                }
+            }
+        }
+
+        draw();
+    } else if (size == 4) {
+        graph.addVertex(horizontalMid - 100, verticalMid - 100);
+        graph.addVertex(horizontalMid + 100, verticalMid - 100);
+        graph.addVertex(horizontalMid + 100, verticalMid + 100);
+        graph.addVertex(horizontalMid - 100, verticalMid + 100);
+
+        for (let i = 0; i < graph.vertices.length; i++) {
+            for (let j = 0; j < graph.vertices.length; j++) {
+                if (i != j) {
+                    graph.addEdge(graph.vertices[i], graph.vertices[j], 0);
+                }
+            }
+        }
+
+        draw();
+    } else if (size == 5) {
+        graph.addVertex(horizontalMid, verticalMid - 150);
+        graph.addVertex(horizontalMid + 100, verticalMid - 80);
+        graph.addVertex(horizontalMid - 100, verticalMid - 80);
+        graph.addVertex(horizontalMid + 60, verticalMid + 30);
+        graph.addVertex(horizontalMid - 60, verticalMid + 30);
+
+        for (let i = 0; i < graph.vertices.length; i++) {
+            for (let j = 0; j < graph.vertices.length; j++) {
+                if (i != j) {
+                    graph.addEdge(graph.vertices[i], graph.vertices[j], 0);
+                }
+            }
+        }
+
+        draw();
+    } else {
+        return;
+    }
+}
+
+function addBipartiteGraph(size) {
+    let leftShift = window.innerWidth * 0.2;
+    let topShift = window.innerHeight * 0.1;
+    let horizontalMid = window.innerWidth / 2 - leftShift;
+    let verticalMid = window.innerHeight / 2 - topShift;
+
+    graph.clear();
+
+    if (size == 3) {
+        graph.addVertex(horizontalMid - 150, verticalMid - 75);
+        graph.addVertex(horizontalMid, verticalMid - 75);
+        graph.addVertex(horizontalMid + 150, verticalMid - 75);
+        graph.addVertex(horizontalMid - 150, verticalMid + 75);
+        graph.addVertex(horizontalMid, verticalMid + 75);
+        graph.addVertex(horizontalMid + 150, verticalMid + 75);
+
+        for (let i = 0; i <= 2; i++) {
+            for (let j = 3; j <= 5; j++) {
+                graph.addEdge(graph.vertices[i], graph.vertices[j], 0);
+            }
+        }
+
+        draw();
+    } else if (size == 4) {
+        graph.addVertex(horizontalMid - 225, verticalMid - 75);
+        graph.addVertex(horizontalMid - 75, verticalMid - 75);
+        graph.addVertex(horizontalMid + 75, verticalMid - 75);
+        graph.addVertex(horizontalMid + 225, verticalMid - 75);
+        graph.addVertex(horizontalMid - 225, verticalMid + 75);
+        graph.addVertex(horizontalMid - 75, verticalMid + 75);
+        graph.addVertex(horizontalMid + 75, verticalMid + 75);
+        graph.addVertex(horizontalMid + 225, verticalMid + 75);
+
+        for (let i = 0; i <= 3; i++) {
+            for (let j = 4; j <= 7; j++) {
+                graph.addEdge(graph.vertices[i], graph.vertices[j], 0);
+            }
+        }
+
+        draw();
+    } else {
+        return;
+    }
+}
+
+function addBasicTree() {
+    let leftShift = window.innerWidth * 0.2;
+    let topShift = window.innerHeight * 0.1;
+    let horizontalMid = window.innerWidth / 2 - leftShift;
+    let verticalMid = window.innerHeight / 2 - topShift;
+
+    graph.clear();
+
+    graph.addVertex(horizontalMid, verticalMid - 200);
+    graph.addVertex(horizontalMid - 150, verticalMid - 75);
+    graph.addVertex(horizontalMid + 150, verticalMid - 75);
+    graph.addVertex(horizontalMid - 250, verticalMid + 50);
+    graph.addVertex(horizontalMid - 75, verticalMid + 50);
+    graph.addVertex(horizontalMid + 75, verticalMid + 50);
+    graph.addVertex(horizontalMid + 250, verticalMid + 50);
+
+    graph.addEdge(graph.vertices[0], graph.vertices[1], 0);
+    graph.addEdge(graph.vertices[0], graph.vertices[2], 0);
+    graph.addEdge(graph.vertices[1], graph.vertices[3], 0);
+    graph.addEdge(graph.vertices[1], graph.vertices[4], 0);
+    graph.addEdge(graph.vertices[2], graph.vertices[5], 0);
+    graph.addEdge(graph.vertices[2], graph.vertices[6], 0);
+
+    draw();
+}
+
 
 
 /* Key and mouse functions */
@@ -325,6 +454,33 @@ document.getElementById("bipartiteBtn").onclick = function() {
 
 document.getElementById("primsBtn").onclick = function() {
     runPrimsAlgo();
+};
+
+
+
+
+document.getElementById("k3Btn").onclick = function() {
+    addCompleteGraph(3);
+};
+
+document.getElementById("k4Btn").onclick = function() {
+    addCompleteGraph(4);
+};
+
+document.getElementById("k5Btn").onclick = function() {
+    addCompleteGraph(5);
+};
+
+document.getElementById("k33Btn").onclick = function() {
+    addBipartiteGraph(3);
+};
+
+document.getElementById("k44Btn").onclick = function() {
+    addBipartiteGraph(4);
+};
+
+document.getElementById("addTreeBtn").onclick = function() {
+    addBasicTree();
 };
 
 
