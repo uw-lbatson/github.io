@@ -31,6 +31,13 @@ div.center {
     width: 50%;
 }
 
+div.center2 {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    width: 20%;
+}
+
 canvas {
     padding: 0;
     margin: auto;
