@@ -307,6 +307,10 @@ export function highlightEdges(edgeList) {
 
 // consider reducing time by checking if connected with n vertices, n-1 edges
 export function isTree() {
+    if (vertices.length == 0) {
+        return "No vertices";
+    }
+
     let cycles = getCycles([]);
     let isForest = false;
 
@@ -346,6 +350,10 @@ export function countLeaves(leafVertices) {
 }
 
 export function isBipartite(setB) {
+    if (vertices.length == 0) {
+        return "No vertices";
+    }
+
     let cycles = getCycles([]);
 
     for (let i = 0; i < cycles.length; i++) {
