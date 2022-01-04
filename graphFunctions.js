@@ -379,6 +379,36 @@ export function isBipartite(setB) {
     return true;
 }
 
+export function primsAlgo() {
+    let mstVertices = [];
+    let mstEdges = [];
+    mstVertices.push(vertices[0]);
+
+    while (mstVertices.length != vertices.length) {
+        let cutSet = getCut(mstVertices, mstEdges);
+        let smallestEdge = cutSet[getSmallestEdge(cutSet)];
+        mstEdges[mstEdges.length] = smallestEdge;
+
+        if (mstVertices.includes(smallestEdge.to)) {
+            mstVertices[mstVertices.length] = smallestEdge.from;
+        } else {
+            mstVertices[mstVertices.length] = smallestEdge.to;
+        }
+    }
+    
+    return mstEdges;
+}
+
+export function getTotalWeight(edgeSet) {
+    let weight = 0;
+    for (let i = 0; i < edgeSet.length; i++) {
+        weight += edgeSet[i].weight;
+    }
+    return weight;
+}
+
+
+
 
 
 
@@ -539,4 +569,62 @@ function getBipartition(vertex) {
             getBipartition(neighbour);
         }
     }
+}
+
+function getSmallestEdge(edgeSet) {
+    let smallestIndex = 0;
+    for (let i = 0; i < edgeSet.length; i++) {
+        if (edgeSet[smallestIndex].weight > edgeSet[i].weight) {
+            smallestIndex = i;
+        }
+    }
+    return smallestIndex;
+}
+
+function getCut(vertexSet, currentEdges) {
+    let edgeSet = [];
+    for (let i = 0; i < vertexSet.length; i++) {
+        let vertex = vertexSet[i];
+        let adjEdges = getVertexEdges(vertex);
+
+        for (let j = 0; j < adjEdges.length; j++) {
+            let edge = adjEdges[j];
+            if (!edgeSet.includes(edge) && !currentEdges.includes(edge)) {
+                edgeSet[edgeSet.length] = edge;
+            }
+        }
+    }
+
+    let noCopies = [];
+    for (let i = 0; i < edgeSet.length; i++) {
+        let edge = edgeSet[i];
+        if (!noCopies.includes(edge)) {
+            noCopies[noCopies.length] = edge;
+        }
+    }
+
+    let noInvalidEdges = [];
+    for (let i = 0; i < noCopies.length; i++) {
+        let edge = noCopies[i];
+        if (vertexSet.includes(edge.to) && vertexSet.includes(edge.from)) {
+            continue;
+        } else {
+            noInvalidEdges[noInvalidEdges.length] = edge;
+        }
+    }
+
+    return noInvalidEdges;
+}
+
+function getVertexEdges(vertex) {
+    let edgeSet = [];
+    for (let i = 0; i < edges.length; i++) {
+        let edge = edges[i];
+        if (!edgeSet.includes(edge)) {
+            if (edge.to == vertex || edge.from == vertex) {
+                edgeSet[edgeSet.length] = edge;
+            }
+        }
+    }
+    return edgeSet;
 }

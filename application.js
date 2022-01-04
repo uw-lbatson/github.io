@@ -195,6 +195,16 @@ function checkBipartite() {
     context.fillText(`Is bipartite?: ${result}`, 10, 70);
 }
 
+function runPrimsAlgo() {
+    graph.deselectAll();
+    let mstEdges = graph.primsAlgo();
+    let totalWeight = graph.getTotalWeight(mstEdges);
+    graph.highlightEdges(mstEdges);
+    draw();
+    standardFont();
+    context.fillText(`Total weight: ${totalWeight}`, 10, 70);
+}
+
 
 
 /* Key and mouse functions */
@@ -311,6 +321,10 @@ document.getElementById("treeBtn").onclick = function() {
 
 document.getElementById("bipartiteBtn").onclick = function() {
     checkBipartite();
+};
+
+document.getElementById("primsBtn").onclick = function() {
+    runPrimsAlgo();
 };
 
 
