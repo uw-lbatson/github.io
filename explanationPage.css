@@ -91,7 +91,8 @@ button {
   }
   
   button.tutorial {
-	text-color: red;
+	back-ground: dark grey;
+	color: white;
   }
 
 button:hover {
