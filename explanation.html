@@ -1,0 +1,145 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Graphs</title>
+    <link rel="stylesheet" href="explanationPage.css">
+    <script type="module" src="application.js"></script>
+</head>
+
+<body style="background-image: url('background.jpg');">
+    <button id="goBack" onclick="location.href='canvas.html';">Go Back</button>
+
+    <div id="wrapper">
+        <div class="mainblock">
+            <u><h1>What is Graph Theory?</h1></u>
+
+            <p>Graph theory is the study of "Graphs", a collection of vertices (represented by the circles), and edges that join two
+                distinct vertices together. The basic idea of this application is to create graphs and use the buttons along the top
+                of the page to find out various things about the graph which will be explained below.
+
+                To use the application, you click within the bordered rectangle to add a vertex. Clicking and dragging moves around
+                the vertex. Clicking one vertex selects it, and clicking on another, unique vertex adds an edge between the two vertices.
+                You will be prompted for an edge weight, which will be used for Prim's algorithm. There are buttons on the left side
+                that generate basic graphs, such as complete graphs, complete bipartite graphs, or a basic tree.
+            </p>
+
+            <div>
+                <div>
+                    Firstly, a complete graph, writen Kn, is a graph with n vertices in which every vertex connects to every other vertex. 
+                    An extension of this is the complete bipartite graph, written Km,n, which has m+n vertices, in which every vertex
+                    from the m set connects to every vertex from the n set, and the graph is bipartite (which will be explained later).
+                    The degree of each vertex is the total number of edges the vertex has connected to it, or the total number of neighbours
+                    the vertex has.
+
+                    Examples of K5 and K3,3 can be found below.
+                </div>
+
+                <div>
+                    <img src="k5example.jpg" alt="K5" class="tallImg">
+                    <img src="k33example.jpg" alt="K33" class="longImg">
+                </div>
+            </div>
+
+
+
+            <br><br><br>
+
+
+
+            A path between two edges is like a trail that goes along edges to get from one vertex to the other. The length of
+            a path is the total number of edges we need to travel across to get to the final vertex. In the application
+            the path with the least amount of edges can be found by inputting two vertices numbers spaced out. Such as: "5 7". An
+            example of a path from 1 to 5 is given on the graph below:<br>
+            <img src="pathExample.jpg" alt="path" class="longImg"><br>
+
+            <br><br>
+
+            An extension of pathing is connectivity. A graph is connected if every vertex on the graph has a path to a different vertex.
+            The image above is a connected graph, but the image below is disconnected:<br>
+            <img src="disconnectedExample.jpg" alt="disconnected" class="tallImg">
+
+
+
+
+            <br><br><br>
+
+
+            After paths come cycles! A cycle is referred to as a "closed path". That is, we travel to different vertices and end
+            up at the vertex we started on. The length of the cycle is the total number of edges we travel across. The length of the
+            smallest cycle in a graph is referred to as the girth of the graph. The girth has more useful properties outside of
+            the current application. Below is an example of a graph with a cycle of length 5.<br>
+            <img src="cycleExample.jpg" alt="cycle" class="tallImg">
+
+
+            <br><br><br>
+
+
+            If a graph has no cycles, then it is referred to as a tree! Trees are always connected. If a graph has no cycles but is
+            disconnected then it is called a forest. On a tree, vertices have unique paths between each other. Additionally,
+            all vertices of degree 1 in a tree are referred to as leaves. Below is an example of a tree:<br>
+            <img src="treeExample.jpg" alt="tree" class="longImg"><br>
+
+
+
+            <br><br><br>
+
+
+
+            A bridge in a graph is an edge that is not apart of any cycles. It would be obvious then that the edges of a tree are
+            all bridges, given that a tree will not contain any cycles. An example of a bridge in a graph is given below:<br>
+            <img src="bridgeExample.jpg" alt="bridge" class="longImg"><br>
+
+
+
+
+            <br><br><br>
+
+
+            We refer to a graph as being bipartite if we can do the following: create two sets of vertices such that every vertex
+            in each set never connects to a vertex in the same set. The easiest way to think of this is by saying, make two sets of
+            vertices, A and B. The vertices in A must not have a neighbour also in A, and the vertices in B must not have a neighbour in B.
+            The application finds these groups for you, if the graph is bipartite. An example of a bipartite graph is given below:<br>
+            <img src="bipartiteExample.jpg" alt="bipartite" class="longImg"><br>
+
+
+
+
+            <br><br><br>
+
+
+            We say that a graph has an Eulerian Circuit, if you can start at a single vertex, walk along all edges, and end up back
+            at the vertex you started on. Eulerian circuits can only be made on a graph given that the degree of every vertex is even.
+            This is because we must both enter then exit a vertex (if we do enter it).
+
+
+
+
+            <br><br><br>
+
+
+            We have what is called Prim's algorithm. The algorithm finds what is called a "minimum spanning tree", or MST for short.
+            An MST can be thought of as connection of edges on the graph that create a tree with every vertex in the graph. But
+            additionally, the edges used in this tree have the smallest possible weighted edges, which you add upon creating an edge.
+            This algorithm can only be done with a connected graph. Below is an example of an MST in a graph:<br>
+            <img src="mstExample.jpg" alt="mst" class="longImg"><br>
+
+
+
+
+            <br><br><br>
+
+
+
+            Finally, we have if a graph is planar or not. A graph is planar if you can move the vertices in such a way so the
+            edges of the graph never intersect. Otherwise the graph is called nonplanar. K5 and K3,3 are both nonplanar, whereas all trees
+            are planar.
+            
+            This is not fully complete, as the actual algorithm to determine if a graph is planar or not is very inefficient, or much 
+            too complicated. 
+
+        </div>
+    </div>
+</body>
+
+</html>

@@ -189,7 +189,7 @@ function checkTree() {
 
 function checkBipartite() {
     graph.deselectAll();
-    let result = graph.isBipartite();
+    let result = graph.isBipartite(true);
     draw();
     standardFont();
     context.fillText(`Is bipartite?: ${result}`, 10, 70);
@@ -204,6 +204,16 @@ function runPrimsAlgo() {
     standardFont();
     context.fillText(`Total weight: ${totalWeight}`, 10, 70);
 }
+
+function checkPlanar() {
+    graph.deselectAll();
+    let result = graph.isPlanar();
+    draw();
+    standardFont();
+    context.fillText(`Is planar?: ${result}`, 10, 70);
+}
+
+
 
 function addCompleteGraph(size) {
     let leftShift = window.innerWidth * 0.2;
@@ -454,6 +464,10 @@ document.getElementById("bipartiteBtn").onclick = function() {
 
 document.getElementById("primsBtn").onclick = function() {
     runPrimsAlgo();
+};
+
+document.getElementById("planarBtn").onclick = function() {
+    checkPlanar();
 };
 
 

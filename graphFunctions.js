@@ -357,7 +357,7 @@ export function countLeaves(leafVertices) {
     return "Graph is not a tree";
 }
 
-export function isBipartite(setB) {
+export function isBipartite(makeBipartition) {
     if (vertices.length == 0) {
         return "No vertices";
     }
@@ -371,15 +371,17 @@ export function isBipartite(setB) {
         }
     }
 
-    if (vertices.length != 0 && edges.length != 0) {
-        vertices[0].setA = true;
-        getBipartition(vertices[0]);
-    } else {
-        for (let i = 0; i < vertices.length; i++) {
-            if (i % 2 == 0) {
-                vertices[i].setA = true;
-            } else {
-                vertices[i].setB = true;
+    if (makeBipartition) {
+        if (vertices.length != 0 && edges.length != 0) {
+            vertices[0].setA = true;
+            getBipartition(vertices[0]);
+        } else {
+            for (let i = 0; i < vertices.length; i++) {
+                if (i % 2 == 0) {
+                    vertices[i].setA = true;
+                } else {
+                    vertices[i].setB = true;
+                }
             }
         }
     }
@@ -415,6 +417,32 @@ export function getTotalWeight(edgeSet) {
     return weight;
 }
 
+export function isPlanar() {
+    let e = edges.length;
+    let v = vertices.length;
+
+    if (isBipartite(false) && e > 2 * v - 4) {
+        return false;
+    } else if (e > 3 * v - 6) {
+        return false;
+    }
+
+    let cycles = getCycles([]);
+    if (cycles.length == 0 || cycles.length == 1) {
+        return true;
+    }
+
+    return "Check using Kuratowski's theorem";
+} 
+
+function checkPlanarity(v, e) {
+    // if empty, true
+    // if isomorphic, false
+    // for each vertex, remove it + adj edges, recurse
+    // for each edge, remove it, recurse
+    // for each edge, contract it, recurse
+    // return true
+}
 
 
 
