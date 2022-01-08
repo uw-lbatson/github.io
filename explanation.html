@@ -11,7 +11,7 @@
     <script type="module" src="application.js"></script>
 </head>
 
-<body style="background-image: url('background.jpg');">
+<body style="background-image: url('imgs/background.jpg');">
     <button id="goBack" onclick="location.href='canvas.html';">Go Back</button>
 
     <div id="wrapper">
@@ -41,8 +41,8 @@
                 </div>
 
                 <div>
-                    <img src="k5example.jpg" alt="K5" class="tallImg">
-                    <img src="k33example.jpg" alt="K33" class="longImg">
+                    <img src="imgs\k5example.jpg" alt="K5" class="tallImg">
+                    <img src="imgs\k33example.jpg" alt="K33" class="longImg">
                 </div>
             </div>
 
@@ -56,13 +56,13 @@
             a path is the total number of edges we need to travel across to get to the final vertex. In the application
             the path with the least amount of edges can be found by inputting two vertices numbers spaced out. Such as: "5 7". An
             example of a path from 1 to 5 is given on the graph below:<br>
-            <img src="pathExample.jpg" alt="path" class="longImg"><br>
+            <img src="imgs\pathExample.jpg" alt="path" class="longImg"><br>
 
             <br><br>
 
             An extension of pathing is connectivity. A graph is connected if every vertex on the graph has a path to a different vertex.
             The image above is a connected graph, but the image below is disconnected:<br>
-            <img src="disconnectedExample.jpg" alt="disconnected" class="tallImg">
+            <img src="imgs\disconnectedExample.jpg" alt="disconnected" class="tallImg">
 
 
 
@@ -74,7 +74,7 @@
             up at the vertex we started on. The length of the cycle is the total number of edges we travel across. The length of the
             smallest cycle in a graph is referred to as the girth of the graph. The girth has more useful properties outside of
             the current application. Below is an example of a graph with a cycle of length 5.<br>
-            <img src="cycleExample.jpg" alt="cycle" class="tallImg">
+            <img src="imgs\cycleExample.jpg" alt="cycle" class="tallImg">
 
 
             <br><br><br>
@@ -83,7 +83,7 @@
             If a graph has no cycles, then it is referred to as a tree! Trees are always connected. If a graph has no cycles but is
             disconnected then it is called a forest. On a tree, vertices have unique paths between each other. Additionally,
             all vertices of degree 1 in a tree are referred to as leaves. Below is an example of a tree:<br>
-            <img src="treeExample.jpg" alt="tree" class="longImg"><br>
+            <img src="imgs\treeExample.jpg" alt="tree" class="longImg"><br>
 
 
 
@@ -93,7 +93,7 @@
             <h2>Bridges</h2>
             A bridge in a graph is an edge that is not apart of any cycles. It would be obvious then that the edges of a tree are
             all bridges, given that a tree will not contain any cycles. An example of a bridge in a graph is given below:<br>
-            <img src="bridgeExample.jpg" alt="bridge" class="longImg"><br>
+            <img src="imgs\bridgeExample.jpg" alt="bridge" class="longImg"><br>
 
 
 
@@ -105,7 +105,7 @@
             in each set never connects to a vertex in the same set. The easiest way to think of this is by saying, make two sets of
             vertices, A and B. The vertices in A must not have a neighbour also in A, and the vertices in B must not have a neighbour in B.
             The application finds these groups for you, if the graph is bipartite. An example of a bipartite graph is given below:<br>
-            <img src="bipartiteExample.jpg" alt="bipartite" class="longImg"><br>
+            <img src="imgs\bipartiteExample.jpg" alt="bipartite" class="longImg"><br>
 
 
 
@@ -127,7 +127,7 @@
             An MST can be thought of as connection of edges on the graph that create a tree with every vertex in the graph. But
             additionally, the edges used in this tree have the smallest possible weighted edges, which you add upon creating an edge.
             This algorithm can only be done with a connected graph. Below is an example of an MST in a graph:<br>
-            <img src="mstExample.jpg" alt="mst" class="longImg"><br>
+            <img src="imgs\mstExample.jpg" alt="mst" class="longImg"><br>
 
 
 
