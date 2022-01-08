@@ -40,8 +40,10 @@ div.center2 {
 
 div.left-center {
     display: block;
-    margin-right: auto;
-    width: 95%;
+    margin-left: 6.5%;
+    margin-top: 5%;
+    display: block;
+    left: 0;
 }
 
 div.smallwidth {
@@ -76,7 +78,27 @@ button {
     color: #353535;
     text-align: center;
     transition: all 0.2s;
-  }
+}
+
+button.tutorial {
+    display: inline-block;
+    padding: 0.6em 1.7em;
+    border: 0.125em solid #000000;
+    margin:0 auto;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    color: #000000;
+    background-color: rgb(155, 155, 155);
+    text-align: center;
+    transition: all 0.2s;
+    font-size: 40px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
 
 button:hover {
     color: #000000;

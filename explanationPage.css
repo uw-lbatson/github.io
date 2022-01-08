@@ -85,14 +85,9 @@ button {
     text-decoration: none;
     font-family: "Roboto", sans-serif;
     font-weight: 300;
-    color: #545454;
+    color: #353535;
     text-align: center;
     transition: all 0.2s;
-  }
-  
-  button.tutorial {
-	back-ground: dark grey;
-	color: white;
   }
 
 button:hover {
